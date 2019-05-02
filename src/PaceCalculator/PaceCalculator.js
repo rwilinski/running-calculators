@@ -1,7 +1,25 @@
 import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Typography from '@material-ui/core/Typography';
 import DistancePicker from '../DistancePicker/DistancePicker';
+import DistanceTable from '../DistanceTable/DistanceTable';
+import Summary from '../components/Summary/Summary';
 import TimePicker from '../TimePicker/TimePicker';
-import { calculatePace, calculateSpeed } from '../helpers/TimeHelper';
+import {
+  calculatePace,
+  calculateSpeed,
+  displayTime
+} from '../helpers/TimeHelper';
+
+const styles = theme => ({
+  panel: {
+    marginTop: theme.spacing.unit * 3
+  }
+});
 
 class PaceCalculator extends Component {
   constructor(props) {
@@ -40,8 +58,10 @@ class PaceCalculator extends Component {
   }
 
   render() {
+    const { classes } = this.props;
+
     return (
-      <div>
+      <React.Fragment>
         <TimePicker
           value={this.state.time}
           onChange={value => this.onUpdate('time', value)}
@@ -50,12 +70,33 @@ class PaceCalculator extends Component {
           value={this.state.distance}
           onChange={value => this.onUpdate('distance', value)}
         />
-        speed: {this.state.speed} km/h
-        <br />
-        pace: {this.state.pace} min/km
-      </div>
+        <Summary
+          data={[
+            {
+              label: 'Speed',
+              text: `${this.state.speed} km/h`
+            },
+            {
+              label: 'Pace',
+              text: `${displayTime(this.state.pace, true)} min/km`
+            }
+          ]}
+        />
+
+        <ExpansionPanel className={classes.panel}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>Your target split times:</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <DistanceTable
+              time={this.state.time}
+              distance={this.state.distance}
+            />
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+      </React.Fragment>
     );
   }
 }
 
-export default PaceCalculator;
+export default withStyles(styles)(PaceCalculator);

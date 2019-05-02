@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Summary from '../components/Summary/Summary';
 import TimePicker from '../TimePicker/TimePicker';
+import { displayDistance } from '../helpers/TimeHelper';
 
 class DistanceCalculator extends Component {
   constructor(props) {
@@ -37,20 +39,25 @@ class DistanceCalculator extends Component {
 
   render() {
     return (
-      <div>
-        Pace:
+      <React.Fragment>
         <TimePicker
           noHours
           value={this.state.pace}
           onChange={value => this.onUpdate('pace', value)}
         />
-        Time:
         <TimePicker
           value={this.state.time}
           onChange={value => this.onUpdate('time', value)}
         />
-        distance: {this.state.distance} m
-      </div>
+        <Summary
+          data={[
+            {
+              label: 'Distance',
+              text: displayDistance(this.state.distance)
+            }
+          ]}
+        />
+      </React.Fragment>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DistancePicker from '../DistancePicker/DistancePicker';
 import TimePicker from '../TimePicker/TimePicker';
+import Summary from '../components/Summary/Summary';
 import { secondsToTime, displayTime } from '../helpers/TimeHelper';
 
 class TimeCalculator extends Component {
@@ -39,20 +40,25 @@ class TimeCalculator extends Component {
 
   render() {
     return (
-      <div>
-        Pace:
+      <React.Fragment>
         <TimePicker
           noHours
           value={this.state.pace}
           onChange={value => this.onUpdate('pace', value)}
         />
-        Distance:
         <DistancePicker
           value={this.state.distance}
           onChange={value => this.onUpdate('distance', value)}
         />
-        time: {displayTime(this.state.time)}
-      </div>
+        <Summary
+          data={[
+            {
+              label: 'Time',
+              text: displayTime(this.state.time)
+            }
+          ]}
+        />
+      </React.Fragment>
     );
   }
 }

@@ -1,4 +1,18 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core';
+import Chip from '@material-ui/core/Chip';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import TextField from '@material-ui/core/TextField';
+
+const styles = theme => ({
+  chipsContainer: {
+    textAlign: 'center',
+    marginBottom: theme.spacing.unit * 3
+  },
+  chip: {
+    margin: theme.spacing.unit / 2
+  }
+});
 
 class DistancePicker extends React.Component {
   constructor(props) {
@@ -8,8 +22,7 @@ class DistancePicker extends React.Component {
       distance: props.value
     };
 
-    this.onChange = this.onChange.bind(this);
-    this.broadcast = this.broadcast.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
   }
 
   distances = [
@@ -30,52 +43,61 @@ class DistancePicker extends React.Component {
       value: 10000
     },
     {
-      name: 'Półmaraton',
+      name: 'Halfmarathon',
       value: 21097
     },
     {
-      name: 'Maraton',
+      name: 'Marathon',
       value: 42195
     }
   ];
 
-  onChange({ target }) {
-    this.setState(
-      {
-        distance: target.value
-      },
-      () => {
-        this.broadcast();
-      }
-    );
+  onInputChange({ target }) {
+    this.setDistance(target.value);
   }
 
-  broadcast() {
-    this.props.onChange(parseInt(this.state.distance || 0));
+  setDistance(distance) {
+    this.setState({ distance }, () => {
+      this.props.onChange(parseInt(this.state.distance || 0));
+    });
   }
 
   render() {
+    const { classes } = this.props;
+
     return (
-      <div>
-        <input
+      <React.Fragment>
+        <TextField
           type="number"
-          name="distance"
+          label="Distance"
           min="0"
+          fullWidth
           value={this.state.distance}
-          onChange={this.onChange}
+          onChange={this.onInputChange}
+          margin="normal"
+          variant="outlined"
+          InputProps={{
+            inputProps: { min: 0 },
+            endAdornment: <InputAdornment position="end">meters</InputAdornment>
+          }}
         />
-        <select onChange={this.onChange}>
+
+        <div className={classes.chipsContainer}>
           {this.distances.map(item => {
             return (
-              <option value={item.value} key={item.value}>
-                {item.name}
-              </option>
+              <Chip
+                color="primary"
+                label={item.name}
+                key={item.value}
+                onClick={() => this.setDistance(item.value)}
+                className={classes.chip}
+              />
             );
           })}
-        </select>
-      </div>
+        </div>
+      </React.Fragment>
     );
   }
 }
 
-export default DistancePicker;
+export default withStyles(styles)(DistancePicker);
