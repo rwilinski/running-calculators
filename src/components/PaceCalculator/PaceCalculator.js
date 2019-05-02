@@ -9,11 +9,8 @@ import DistancePicker from '../DistancePicker/DistancePicker';
 import DistanceTable from '../DistanceTable/DistanceTable';
 import Summary from '../Summary/Summary';
 import TimePicker from '../TimePicker/TimePicker';
-import {
-  calculatePace,
-  calculateSpeed,
-  displayTime
-} from '../../helpers/TimeHelper';
+import { displayTime } from '../../helpers/DisplayHelper';
+import { calculatePace, calculateSpeed } from '../../helpers/TimeHelper';
 
 const styles = theme => ({
   panel: {

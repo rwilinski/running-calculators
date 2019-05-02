@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import DistancePicker from './../DistancePicker/DistancePicker';
 import TimePicker from './../TimePicker/TimePicker';
 import Summary from './../Summary/Summary';
-import { secondsToTime, displayTime } from '../../helpers/TimeHelper';
+import { displayTime } from '../../helpers/DisplayHelper';
+import { secondsToTime } from '../../helpers/TimeHelper';
 
 class TimeCalculator extends Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Summary from '../Summary/Summary';
 import TimePicker from '../TimePicker/TimePicker';
-import { displayDistance } from '../../helpers/TimeHelper';
+import { displayDistance } from '../../helpers/DisplayHelper';
 
 class DistanceCalculator extends Component {
   constructor(props) {
