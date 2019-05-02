@@ -7,13 +7,13 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import DistancePicker from '../DistancePicker/DistancePicker';
 import DistanceTable from '../DistanceTable/DistanceTable';
-import Summary from '../components/Summary/Summary';
+import Summary from '../Summary/Summary';
 import TimePicker from '../TimePicker/TimePicker';
 import {
   calculatePace,
   calculateSpeed,
   displayTime
-} from '../helpers/TimeHelper';
+} from '../../helpers/TimeHelper';
 
 const styles = theme => ({
   panel: {

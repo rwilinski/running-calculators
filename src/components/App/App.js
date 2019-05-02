@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import './App.scss';
 import DistanceCalculator from './../DistanceCalculator/DistanceCalculator';
 import PaceCalculator from './../PaceCalculator/PaceCalculator';
 import TimeCalculator from './../TimeCalculator/TimeCalculator';

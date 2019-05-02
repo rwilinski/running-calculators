@@ -9,7 +9,7 @@ import {
   calculatePace,
   displayTime,
   displayDistance
-} from '../helpers/TimeHelper';
+} from '../../helpers/TimeHelper';
 
 const styles = theme => ({
   muted: {

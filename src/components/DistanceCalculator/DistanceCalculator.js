@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import DistancePicker from '../DistancePicker/DistancePicker';
+import Summary from '../Summary/Summary';
 import TimePicker from '../TimePicker/TimePicker';
-import Summary from '../components/Summary/Summary';
-import { secondsToTime, displayTime } from '../helpers/TimeHelper';
+import { displayDistance } from '../../helpers/TimeHelper';
 
-class TimeCalculator extends Component {
+class DistanceCalculator extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       pace: 360,
-      distance: 1000,
-      time: 0
+      time: 1800,
+      distance: 0
     };
 
     this.onUpdate = this.onUpdate.bind(this);
@@ -30,7 +29,7 @@ class TimeCalculator extends Component {
 
   calculate() {
     this.setState({
-      time: secondsToTime(this.state.pace * (this.state.distance / 1000))
+      distance: (this.state.time / this.state.pace) * 1000
     });
   }
 
@@ -46,15 +45,15 @@ class TimeCalculator extends Component {
           value={this.state.pace}
           onChange={value => this.onUpdate('pace', value)}
         />
-        <DistancePicker
-          value={this.state.distance}
-          onChange={value => this.onUpdate('distance', value)}
+        <TimePicker
+          value={this.state.time}
+          onChange={value => this.onUpdate('time', value)}
         />
         <Summary
           data={[
             {
-              label: 'Time',
-              text: displayTime(this.state.time)
+              label: 'Distance',
+              text: displayDistance(this.state.distance)
             }
           ]}
         />
@@ -63,4 +62,4 @@ class TimeCalculator extends Component {
   }
 }
 
-export default TimeCalculator;
+export default DistanceCalculator;

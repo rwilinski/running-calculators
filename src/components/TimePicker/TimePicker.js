@@ -1,5 +1,5 @@
 import React from 'react';
-import { secondsToTime, timeToSeconds } from './../helpers/TimeHelper';
+import { secondsToTime, timeToSeconds } from './../../helpers/TimeHelper';
 import { withStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
