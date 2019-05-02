@@ -15,18 +15,10 @@ const styles = theme => ({
 });
 
 class DistanceTable extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      rows: []
-    };
-  }
-
   render() {
     const { classes } = this.props;
     const pace = calculatePace(this.props.time, this.props.distance);
-    const km = Math.floor(this.props.distance / 1000);
+    const km = Math.floor(this.props.distance / 1000) || 0;
 
     let rows = Array(km)
       .fill(null)
