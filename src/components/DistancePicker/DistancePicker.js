@@ -87,6 +87,7 @@ class DistancePicker extends React.Component {
             return (
               <Chip
                 color="primary"
+                variant="outlined"
                 label={item.name}
                 key={item.value}
                 onClick={() => this.setDistance(item.value)}

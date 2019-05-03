@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+import orange from '@material-ui/core/colors/orange';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import DistanceCalculator from './../DistanceCalculator/DistanceCalculator';
 import PaceCalculator from './../PaceCalculator/PaceCalculator';
 import TimeCalculator from './../TimeCalculator/TimeCalculator';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: blue,
+    secondary: orange
+  },
+  typography: {
+    useNextVariants: true
+  }
+});
 
 const styles = theme => ({
   container: {
@@ -33,7 +46,7 @@ class App extends Component {
     const { classes } = this.props;
 
     return (
-      <React.Fragment>
+      <MuiThemeProvider theme={theme}>
         <CssBaseline />
 
         <div className={classes.container}>
@@ -42,11 +55,11 @@ class App extends Component {
               Pace calculator
             </Typography>
             <Typography variant="subtitle1" gutterBottom>
-              Provide time and distance to calculate required pace to finish
-              race in expected time. Below is a table with expected times on
-              individual distances.
+              This calculator helps you to determine what is the necessary speed
+              and pace of your run to achieve the planned result at a given
+              distance. Below you will find a table with calculated splits for
+              your goal finishing time.
             </Typography>
-
             <PaceCalculator />
           </Paper>
 
@@ -55,7 +68,8 @@ class App extends Component {
               Time calculator
             </Typography>
             <Typography variant="subtitle1" gutterBottom>
-              Provide pace and distance to calculate time of finish.
+              Provide your <u>pace</u> and planned <u>distance</u> to calculate
+              your finish time.
             </Typography>
 
             <TimeCalculator />
@@ -65,13 +79,14 @@ class App extends Component {
               Distance calculator
             </Typography>
             <Typography variant="subtitle1" gutterBottom>
-              Provide pace and time to calculate distance.
+              Provide your <u>pace</u> and planned <u>time</u> to calculate your
+              target distance.
             </Typography>
 
             <DistanceCalculator />
           </Paper>
         </div>
-      </React.Fragment>
+      </MuiThemeProvider>
     );
   }
 }

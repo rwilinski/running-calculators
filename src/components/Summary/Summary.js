@@ -10,7 +10,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.grey[200]
   },
   left: {
-    color: theme.palette.grey[600],
+    opacity: 0.5,
     paddingRight: theme.spacing.unit
   },
   right: {
@@ -28,13 +28,20 @@ class Summary extends React.Component {
           return (
             <Grid container key={row.label}>
               <Grid item xs align="right">
-                <Typography variant="h6" className={classes.left}>
-                  {/* Speed: */}
+                <Typography
+                  variant="h6"
+                  color="inherit"
+                  className={classes.left}
+                >
                   {row.label}:
                 </Typography>
               </Grid>
               <Grid item xs>
-                <Typography variant="h6" className={classes.right}>
+                <Typography
+                  variant="h6"
+                  color="inherit"
+                  className={classes.right}
+                >
                   {row.text}
                 </Typography>
               </Grid>
