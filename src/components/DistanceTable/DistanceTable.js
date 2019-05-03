@@ -5,8 +5,8 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import { displayTime, displayDistance } from '../../helpers/DisplayHelper';
-import { calculatePace } from '../../helpers/TimeHelper';
+import { displayTime, displayDistance } from '../../helpers/DisplayHelper/DisplayHelper';
+import { calculatePace } from '../../helpers/TimeHelper/TimeHelper';
 
 const styles = theme => ({
   muted: {
