@@ -1,8 +1,8 @@
 export function secondsToTime(value = 0) {
   const hours = Math.floor(value / 3600);
   const hoursRemainder = value - hours * 3600;
-  let minutes = Math.floor(hoursRemainder / 60);
-  let seconds = Math.round(hoursRemainder - minutes * 60);
+  const minutes = Math.floor(hoursRemainder / 60);
+  const seconds = Math.round(hoursRemainder - minutes * 60);
 
   return {
     hours,
@@ -11,12 +11,8 @@ export function secondsToTime(value = 0) {
   };
 }
 
-export function timeToSeconds(value = {}) {
-  return (
-    parseInt(value.hours || 0) * 3600 +
-    parseInt(value.minutes || 0) * 60 +
-    parseInt(value.seconds || 0)
-  );
+export function timeToSeconds({ hours = 0, minutes = 0, seconds = 0 } = {}) {
+  return parseInt(hours) * 3600 + parseInt(minutes) * 60 + parseInt(seconds);
 }
 
 export function calculateSpeed(time = 0, distance = 0) {
@@ -27,14 +23,5 @@ export function calculateSpeed(time = 0, distance = 0) {
 }
 
 export function calculatePace(time = 0, distance = 0) {
-  const tempo = (1000 * time) / distance;
-  const hours = Math.floor(tempo / 3600);
-  const minutes = Math.floor((tempo - hours * 3600) / 60);
-  const seconds = Math.floor(tempo - hours * 3600 - minutes * 60);
-
-  return timeToSeconds({
-    hours,
-    minutes,
-    seconds
-  });
+  return Math.floor((1000 * time) / (distance || 1));
 }
