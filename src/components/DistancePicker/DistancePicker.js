@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core';
 import Chip from '@material-ui/core/Chip';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
+import { displayDistance } from '../../helpers/DisplayHelper/DisplayHelper';
 
 const styles = theme => ({
   chipsContainer: {
@@ -27,19 +28,19 @@ class DistancePicker extends React.Component {
 
   distances = [
     {
-      name: '1km',
+      name: displayDistance(1000),
       value: 1000
     },
     {
-      name: '2km',
+      name: displayDistance(2000),
       value: 2000
     },
     {
-      name: '5km',
+      name: displayDistance(5000),
       value: 5000
     },
     {
-      name: '10km',
+      name: displayDistance(10000),
       value: 10000
     },
     {
