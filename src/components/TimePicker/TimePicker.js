@@ -1,5 +1,8 @@
 import React from 'react';
-import { secondsToTime, timeToSeconds } from './../../helpers/TimeHelper/TimeHelper';
+import {
+  secondsToTime,
+  timeToSeconds
+} from './../../helpers/TimeHelper/TimeHelper';
 import { withStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
@@ -41,8 +44,8 @@ class TimePicker extends React.Component {
   updateInput(inputName, type = 'increment') {
     const newVal =
       type === 'increment'
-        ? parseInt(this.state[inputName]) + 1
-        : parseInt(this.state[inputName]) - 1;
+        ? parseInt(this.state[inputName] || 0) + 1
+        : parseInt(this.state[inputName] || 0) - 1;
 
     this.setState(
       {

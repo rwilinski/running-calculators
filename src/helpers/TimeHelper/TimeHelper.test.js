@@ -21,6 +21,9 @@ it('timeToSeconds function', () => {
   expect(timeToSeconds()).toBe(0);
   expect(timeToSeconds({})).toBe(0);
   expect(timeToSeconds({ foobar: 2 })).toBe(0);
+  expect(timeToSeconds({ hours: NaN })).toBe(0);
+  expect(timeToSeconds({ hours: '' })).toBe(0);
+  expect(timeToSeconds({ hours: undefined })).toBe(0);
   expect(timeToSeconds({ hours: 1 })).toBe(3600);
   expect(timeToSeconds({ minutes: 2 })).toBe(120);
   expect(timeToSeconds({ seconds: 2 })).toBe(2);

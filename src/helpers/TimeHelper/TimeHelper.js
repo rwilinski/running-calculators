@@ -11,8 +11,12 @@ export function secondsToTime(value = 0) {
   };
 }
 
-export function timeToSeconds({ hours = 0, minutes = 0, seconds = 0 } = {}) {
-  return parseInt(hours) * 3600 + parseInt(minutes) * 60 + parseInt(seconds);
+export function timeToSeconds({ hours, minutes, seconds } = {}) {
+  return (
+    parseInt(hours || 0) * 3600 +
+    parseInt(minutes || 0) * 60 +
+    parseInt(seconds || 0)
+  );
 }
 
 export function calculateSpeed(time = 0, distance = 0) {
