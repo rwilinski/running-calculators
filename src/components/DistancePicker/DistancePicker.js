@@ -78,7 +78,7 @@ class DistancePicker extends React.Component {
           margin="normal"
           variant="outlined"
           InputProps={{
-            inputProps: { min: 0 },
+            inputProps: { min: 0, name: 'distance' },
             endAdornment: <InputAdornment position="end">meters</InputAdornment>
           }}
         />

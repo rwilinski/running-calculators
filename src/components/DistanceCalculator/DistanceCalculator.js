@@ -29,7 +29,7 @@ class DistanceCalculator extends Component {
 
   calculate() {
     this.setState({
-      distance: (this.state.time / this.state.pace) * 1000
+      distance: this.state.pace ? (this.state.time / this.state.pace) * 1000 : 0
     });
   }
 
