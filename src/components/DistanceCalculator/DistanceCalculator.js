@@ -12,8 +12,6 @@ class DistanceCalculator extends Component {
       time: 1800,
       distance: 0
     };
-
-    this.onUpdate = this.onUpdate.bind(this);
   }
 
   onUpdate(key, data) {

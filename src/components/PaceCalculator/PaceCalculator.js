@@ -10,7 +10,10 @@ import DistanceTable from '../DistanceTable/DistanceTable';
 import Summary from '../Summary/Summary';
 import TimePicker from '../TimePicker/TimePicker';
 import { displayTime } from '../../helpers/DisplayHelper/DisplayHelper';
-import { calculatePace, calculateSpeed } from '../../helpers/TimeHelper/TimeHelper';
+import {
+  calculatePace,
+  calculateSpeed
+} from '../../helpers/TimeHelper/TimeHelper';
 
 const styles = theme => ({
   panel: {
@@ -28,8 +31,6 @@ class PaceCalculator extends Component {
       speed: 0,
       pace: 0
     };
-
-    this.onUpdate = this.onUpdate.bind(this);
   }
 
   onUpdate(key, data) {
