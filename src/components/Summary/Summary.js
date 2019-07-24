@@ -6,15 +6,15 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   summary: {
-    padding: theme.spacing.unit * 2,
+    padding: theme.spacing(2),
     backgroundColor: theme.palette.grey[200]
   },
   left: {
     opacity: 0.5,
-    paddingRight: theme.spacing.unit
+    paddingRight: theme.spacing()
   },
   right: {
-    paddingRight: theme.spacing.unit
+    paddingRight: theme.spacing()
   }
 });
 

@@ -16,8 +16,8 @@ import {
 } from '../../helpers/TimeHelper/TimeHelper';
 
 const styles = theme => ({
-  panel: {
-    marginTop: theme.spacing.unit * 3
+  expansionPanel: {
+    marginTop: theme.spacing(3)
   }
 });
 
@@ -81,7 +81,7 @@ class PaceCalculator extends Component {
           ]}
         />
 
-        <ExpansionPanel className={classes.panel}>
+        <ExpansionPanel className={classes.expansionPanel}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography>Your target split times:</Typography>
           </ExpansionPanelSummary>

@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+
 import { withStyles } from '@material-ui/core';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import orange from '@material-ui/core/colors/orange';
+import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+
 import DistanceCalculator from './../DistanceCalculator/DistanceCalculator';
 import PaceCalculator from './../PaceCalculator/PaceCalculator';
 import TimeCalculator from './../TimeCalculator/TimeCalculator';
@@ -21,23 +24,9 @@ const theme = createMuiTheme({
 });
 
 const styles = theme => ({
-  container: {
-    width: 'auto',
-    display: 'block',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
-      width: 700,
-      marginLeft: 'auto',
-      marginRight: 'auto'
-    }
-  },
   contentPaper: {
-    ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 3,
-    paddingBottom: theme.spacing.unit * 3,
-    marginTop: theme.spacing.unit * 5,
-    marginBottom: theme.spacing.unit * 5
+    padding: theme.spacing(3),
+    margin: theme.spacing(3, 0)
   }
 });
 
@@ -49,7 +38,7 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
 
-        <div className={classes.container}>
+        <Container maxWidth="md">
           <Paper className={classes.contentPaper}>
             <Typography variant="h4" gutterBottom>
               Pace calculator
@@ -85,7 +74,7 @@ class App extends Component {
 
             <DistanceCalculator />
           </Paper>
-        </div>
+        </Container>
       </MuiThemeProvider>
     );
   }

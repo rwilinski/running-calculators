@@ -8,10 +8,10 @@ import { displayDistance } from '../../helpers/DisplayHelper/DisplayHelper';
 const styles = theme => ({
   chipsContainer: {
     textAlign: 'center',
-    marginBottom: theme.spacing.unit * 3
+    marginBottom: theme.spacing(3)
   },
   chip: {
-    margin: theme.spacing.unit / 2
+    margin: theme.spacing(0.5)
   }
 });
 
@@ -84,18 +84,16 @@ class DistancePicker extends React.Component {
         />
 
         <div className={classes.chipsContainer}>
-          {this.distances.map(item => {
-            return (
-              <Chip
-                color="primary"
-                variant="outlined"
-                label={item.name}
-                key={item.value}
-                onClick={() => this.setDistance(item.value)}
-                className={classes.chip}
-              />
-            );
-          })}
+          {this.distances.map(item => (
+            <Chip
+              color="primary"
+              variant="outlined"
+              label={item.name}
+              key={item.value}
+              onClick={() => this.setDistance(item.value)}
+              className={classes.chip}
+            />
+          ))}
         </div>
       </React.Fragment>
     );

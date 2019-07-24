@@ -39,7 +39,7 @@ class DistanceCalculator extends Component {
     return (
       <React.Fragment>
         <TimePicker
-          noHours
+          asPace
           value={this.state.pace}
           onChange={value => this.onUpdate('pace', value)}
         />

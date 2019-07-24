@@ -60,11 +60,11 @@ class TimePicker extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { asPace, classes } = this.props;
 
     return (
-      <Grid container spacing={16}>
-        {!this.props.noHours && (
+      <Grid container spacing={2}>
+        {!asPace && (
           <Grid item xs className={classes.gridItem}>
             <IconButton
               tabIndex="-1"
@@ -75,7 +75,7 @@ class TimePicker extends React.Component {
             </IconButton>
             <TextField
               type="number"
-              label="Hours"
+              label={(asPace ? 'Pace' : 'Time') + ' (hours)'}
               name="hours"
               InputProps={{
                 inputProps: { min: 0 },
@@ -107,7 +107,7 @@ class TimePicker extends React.Component {
           </IconButton>
           <TextField
             type="number"
-            label="Minutes"
+            label={(asPace ? 'Pace' : 'Time') + ' (minutes)'}
             name="minutes"
             InputProps={{
               inputProps: { min: 0, max: 59 },
@@ -138,7 +138,7 @@ class TimePicker extends React.Component {
           </IconButton>
           <TextField
             type="number"
-            label="Seconds"
+            label={(asPace ? 'Pace' : 'Time') + ' (seconds)'}
             name="seconds"
             InputProps={{
               inputProps: { min: 0, max: 59 },
