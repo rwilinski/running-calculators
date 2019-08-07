@@ -1,21 +1,24 @@
 import React from 'react';
+
+import { withStyles } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+
 import {
   secondsToTime,
   timeToSeconds
 } from './../../helpers/TimeHelper/TimeHelper';
-import { withStyles } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
-import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import TextField from '@material-ui/core/TextField';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 
 const styles = theme => ({
   gridItem: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
@@ -65,36 +68,43 @@ class TimePicker extends React.Component {
     return (
       <Grid container spacing={2}>
         {!asPace && (
-          <Grid item xs className={classes.gridItem}>
-            <IconButton
-              tabIndex="-1"
-              color="primary"
-              onClick={() => this.updateInput('hours')}
-            >
-              <KeyboardArrowUpIcon />
-            </IconButton>
-            <TextField
-              type="number"
-              label={(asPace ? 'Pace' : 'Time') + ' (hours)'}
-              name="hours"
-              InputProps={{
-                inputProps: { min: 0 },
-                endAdornment: <InputAdornment position="end">h</InputAdornment>
-              }}
-              fullWidth
-              value={this.state.hours}
-              onChange={this.onChange}
-              variant="outlined"
-            />
-            <IconButton
-              tabIndex="-1"
-              color="primary"
-              onClick={() => this.updateInput('hours', 'decrement')}
-              disabled={this.state.hours <= 0}
-            >
-              <KeyboardArrowDownIcon />
-            </IconButton>
-          </Grid>
+          <>
+            <Grid item xs className={classes.gridItem}>
+              <IconButton
+                tabIndex="-1"
+                color="primary"
+                onClick={() => this.updateInput('hours')}
+              >
+                <KeyboardArrowUpIcon />
+              </IconButton>
+              <TextField
+                type="number"
+                placeholder="hours"
+                name="hours"
+                InputProps={{
+                  inputProps: {
+                    min: 0,
+                    className: 'hideInputArrows textCenter'
+                  }
+                }}
+                fullWidth
+                value={this.state.hours}
+                onChange={this.onChange}
+                variant="outlined"
+              />
+              <IconButton
+                tabIndex="-1"
+                color="primary"
+                onClick={() => this.updateInput('hours', 'decrement')}
+                disabled={this.state.hours <= 0}
+              >
+                <KeyboardArrowDownIcon />
+              </IconButton>
+            </Grid>
+            <Grid item className={classes.gridItem}>
+              <Typography variant="h6">:</Typography>
+            </Grid>
+          </>
         )}
         <Grid item xs className={classes.gridItem}>
           <IconButton
@@ -107,11 +117,14 @@ class TimePicker extends React.Component {
           </IconButton>
           <TextField
             type="number"
-            label={(asPace ? 'Pace' : 'Time') + ' (minutes)'}
+            placeholder="minutes"
             name="minutes"
             InputProps={{
-              inputProps: { min: 0, max: 59 },
-              endAdornment: <InputAdornment position="end">m</InputAdornment>
+              inputProps: {
+                min: 0,
+                max: 59,
+                className: 'hideInputArrows textCenter'
+              }
             }}
             fullWidth
             value={this.state.minutes}
@@ -127,6 +140,9 @@ class TimePicker extends React.Component {
             <KeyboardArrowDownIcon />
           </IconButton>
         </Grid>
+        <Grid item className={classes.gridItem}>
+          <Typography variant="h6">:</Typography>
+        </Grid>
         <Grid item xs className={classes.gridItem}>
           <IconButton
             tabIndex="-1"
@@ -138,11 +154,14 @@ class TimePicker extends React.Component {
           </IconButton>
           <TextField
             type="number"
-            label={(asPace ? 'Pace' : 'Time') + ' (seconds)'}
+            placeholder="seconds"
             name="seconds"
             InputProps={{
-              inputProps: { min: 0, max: 59 },
-              endAdornment: <InputAdornment position="end">s</InputAdornment>
+              inputProps: {
+                min: 0,
+                max: 59,
+                className: 'hideInputArrows textCenter'
+              }
             }}
             fullWidth
             value={this.state.seconds}

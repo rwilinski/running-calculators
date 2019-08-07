@@ -1,54 +1,35 @@
 import React from 'react';
+
 import { withStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
-  summary: {
-    padding: theme.spacing(2),
-    backgroundColor: theme.palette.grey[200]
-  },
-  left: {
-    opacity: 0.5,
-    paddingRight: theme.spacing()
-  },
-  right: {
-    paddingRight: theme.spacing()
+  summaryPaper: {
+    padding: theme.spacing(),
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.common.white,
+    textAlign: 'center'
   }
 });
 
 class Summary extends React.Component {
   render() {
-    const { classes } = this.props;
+    const { classes, data } = this.props;
+    const cols = 12 / data.length;
 
     return (
-      <Paper elevation={0} className={classes.summary}>
-        {this.props.data.map(row => {
-          return (
-            <Grid container key={row.label}>
-              <Grid item xs align="right">
-                <Typography
-                  variant="h6"
-                  color="inherit"
-                  className={classes.left}
-                >
-                  {row.label}:
-                </Typography>
-              </Grid>
-              <Grid item xs>
-                <Typography
-                  variant="h6"
-                  color="inherit"
-                  className={classes.right}
-                >
-                  {row.text}
-                </Typography>
-              </Grid>
-            </Grid>
-          );
-        })}
-      </Paper>
+      <Grid container spacing={2}>
+        {data.map(row => (
+          <Grid key={row.label} item xs={12} sm={cols}>
+            <Paper elevation={0} className={classes.summaryPaper}>
+              <Typography variant="h6">{row.label}</Typography>
+              <Typography variant="h4">{row.text}</Typography>
+            </Paper>
+          </Grid>
+        ))}
+      </Grid>
     );
   }
 }

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+
 import { withStyles } from '@material-ui/core';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import InputLabel from '@material-ui/core/InputLabel';
 import Typography from '@material-ui/core/Typography';
+
 import DistancePicker from '../DistancePicker/DistancePicker';
 import DistanceTable from '../DistanceTable/DistanceTable';
 import Summary from '../Summary/Summary';
@@ -60,14 +63,28 @@ class PaceCalculator extends Component {
 
     return (
       <React.Fragment>
+        <Typography variant="h4" gutterBottom>
+          Pace calculator
+        </Typography>
+        <Typography variant="body1" paragraph={true}>
+          This calculator helps you to determine what is the necessary speed and
+          pace of your run to achieve the planned result at a given distance.
+          Below you will find a table with calculated splits for your goal
+          finishing time.
+        </Typography>
+
+        <InputLabel>Expected time (h:m:s)</InputLabel>
         <TimePicker
           value={this.state.time}
           onChange={value => this.onUpdate('time', value)}
         />
+
+        <InputLabel>Distance (meters)</InputLabel>
         <DistancePicker
           value={this.state.distance}
           onChange={value => this.onUpdate('distance', value)}
         />
+
         <Summary
           data={[
             {

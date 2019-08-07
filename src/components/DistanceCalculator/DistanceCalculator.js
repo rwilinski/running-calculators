@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+
+import InputLabel from '@material-ui/core/InputLabel';
+import Typography from '@material-ui/core/Typography';
+
 import Summary from '../Summary/Summary';
 import TimePicker from '../TimePicker/TimePicker';
 import { displayDistance } from '../../helpers/DisplayHelper/DisplayHelper';
@@ -38,15 +42,26 @@ class DistanceCalculator extends Component {
   render() {
     return (
       <React.Fragment>
+        <Typography variant="h4" gutterBottom>
+          Distance calculator
+        </Typography>
+        <Typography variant="body1" paragraph={true}>
+          Provide your pace and planned time to calculate your target distance.
+        </Typography>
+
+        <InputLabel>Pace (m:s)</InputLabel>
         <TimePicker
           asPace
           value={this.state.pace}
           onChange={value => this.onUpdate('pace', value)}
         />
+
+        <InputLabel>Time (h:m:s)</InputLabel>
         <TimePicker
           value={this.state.time}
           onChange={value => this.onUpdate('time', value)}
         />
+
         <Summary
           data={[
             {

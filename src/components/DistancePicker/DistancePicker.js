@@ -1,7 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core';
 import Chip from '@material-ui/core/Chip';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import { displayDistance } from '../../helpers/DisplayHelper/DisplayHelper';
 
@@ -70,7 +69,7 @@ class DistancePicker extends React.Component {
       <React.Fragment>
         <TextField
           type="number"
-          label="Distance"
+          placeholder="meters"
           min="0"
           fullWidth
           value={this.state.distance}
@@ -78,8 +77,11 @@ class DistancePicker extends React.Component {
           margin="normal"
           variant="outlined"
           InputProps={{
-            inputProps: { min: 0, name: 'distance' },
-            endAdornment: <InputAdornment position="end">meters</InputAdornment>
+            inputProps: {
+              min: 0,
+              name: 'distance',
+              className: 'hideInputArrows textCenter'
+            }
           }}
         />
 
