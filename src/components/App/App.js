@@ -5,6 +5,7 @@ import 'typeface-roboto';
 import { withStyles } from '@material-ui/core';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
+import grey from '@material-ui/core/colors/grey';
 import orange from '@material-ui/core/colors/orange';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
@@ -20,7 +21,10 @@ import TimeCalculator from './../TimeCalculator/TimeCalculator';
 const theme = createMuiTheme({
   palette: {
     primary: blue,
-    secondary: orange
+    secondary: orange,
+    text: {
+      primary: grey[800]
+    }
   },
   typography: {
     useNextVariants: true

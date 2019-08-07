@@ -84,7 +84,8 @@ class TimePicker extends React.Component {
                 InputProps={{
                   inputProps: {
                     min: 0,
-                    className: 'hideInputArrows textCenter'
+                    className: 'hideInputArrows textCenter',
+                    'aria-label': 'Hours'
                   }
                 }}
                 fullWidth
@@ -123,7 +124,8 @@ class TimePicker extends React.Component {
               inputProps: {
                 min: 0,
                 max: 59,
-                className: 'hideInputArrows textCenter'
+                className: 'hideInputArrows textCenter',
+                'aria-label': 'Minutes'
               }
             }}
             fullWidth
@@ -160,7 +162,8 @@ class TimePicker extends React.Component {
               inputProps: {
                 min: 0,
                 max: 59,
-                className: 'hideInputArrows textCenter'
+                className: 'hideInputArrows textCenter',
+                'aria-label': 'Seconds'
               }
             }}
             fullWidth
