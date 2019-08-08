@@ -74,6 +74,7 @@ class TimePicker extends React.Component {
                 tabIndex="-1"
                 color="primary"
                 onClick={() => this.updateInput('hours')}
+                aria-label="Hours increase"
               >
                 <KeyboardArrowUpIcon />
               </IconButton>
@@ -98,6 +99,7 @@ class TimePicker extends React.Component {
                 color="primary"
                 onClick={() => this.updateInput('hours', 'decrement')}
                 disabled={this.state.hours <= 0}
+                aria-label="Hours decrease"
               >
                 <KeyboardArrowDownIcon />
               </IconButton>
@@ -113,6 +115,7 @@ class TimePicker extends React.Component {
             color="primary"
             onClick={() => this.updateInput('minutes')}
             disabled={this.state.minutes >= 59}
+            aria-label="Minutes increase"
           >
             <KeyboardArrowUpIcon />
           </IconButton>
@@ -138,6 +141,7 @@ class TimePicker extends React.Component {
             color="primary"
             onClick={() => this.updateInput('minutes', 'decrement')}
             disabled={this.state.minutes <= 0}
+            aria-label="Minutes decrease"
           >
             <KeyboardArrowDownIcon />
           </IconButton>
@@ -151,6 +155,7 @@ class TimePicker extends React.Component {
             color="primary"
             onClick={() => this.updateInput('seconds')}
             disabled={this.state.seconds >= 59}
+            aria-label="Seconds increase"
           >
             <KeyboardArrowUpIcon />
           </IconButton>
@@ -176,6 +181,7 @@ class TimePicker extends React.Component {
             color="primary"
             onClick={() => this.updateInput('seconds', 'decrement')}
             disabled={this.state.seconds <= 0}
+            aria-label="Seconds decrease"
           >
             <KeyboardArrowDownIcon />
           </IconButton>

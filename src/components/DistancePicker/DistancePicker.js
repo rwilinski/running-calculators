@@ -80,7 +80,8 @@ class DistancePicker extends React.Component {
             inputProps: {
               min: 0,
               name: 'distance',
-              className: 'hideInputArrows textCenter'
+              className: 'hideInputArrows textCenter',
+              'aria-label': 'Distance'
             }
           }}
         />
