@@ -18,6 +18,8 @@ import DistanceCalculator from './../DistanceCalculator/DistanceCalculator';
 import PaceCalculator from './../PaceCalculator/PaceCalculator';
 import TimeCalculator from './../TimeCalculator/TimeCalculator';
 
+import logo from './logo-35.png';
+
 const theme = createMuiTheme({
   palette: {
     primary: blue,
@@ -46,6 +48,9 @@ const styles = theme => ({
   contentPaper: {
     padding: theme.spacing(2),
     margin: theme.spacing(3, 0)
+  },
+  logo: {
+    marginRight: theme.spacing(1)
   }
 });
 
@@ -59,6 +64,7 @@ class App extends Component {
 
         <AppBar position="static">
           <Toolbar>
+            <img src={logo} alt="" className={classes.logo} />
             <Typography variant="h6" color="inherit">
               Running Calculators
             </Typography>
