@@ -4,6 +4,10 @@ export function pad(value = '', size = 2) {
   return String(value).padStart(size, '0');
 }
 
+export function roundNumber(num) {
+  return Math.round(num * 100) / 100;
+}
+
 export function displayTime(value, hideEmptyHours = false) {
   if (typeof value === 'number') {
     value = secondsToTime(value);
@@ -29,4 +33,8 @@ export function displayDistance(value) {
   return [km ? `${km} km` : null, m ? `${m} m` : null]
     .filter(Boolean)
     .join(' ');
+}
+
+export function displaySpeed(value = 0) {
+  return `${roundNumber(value)} km/h`;
 }

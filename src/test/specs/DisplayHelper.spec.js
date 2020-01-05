@@ -1,7 +1,9 @@
 import {
   pad,
+  roundNumber,
   displayTime,
-  displayDistance
+  displayDistance,
+  displaySpeed
 } from '../../helpers/DisplayHelper/DisplayHelper';
 
 describe('DisplayHelper', () => {
@@ -14,6 +16,15 @@ describe('DisplayHelper', () => {
     expect(pad(1, 5)).toBe('00001');
     expect(pad(123, 5)).toBe('00123');
     expect(pad(123456, 5)).toBe('123456');
+  });
+
+  test('roundNumber function', () => {
+    expect(roundNumber()).toBe(NaN);
+    expect(roundNumber(1)).toBe(1);
+    expect(roundNumber(1.2)).toBe(1.2);
+    expect(roundNumber(1.23)).toBe(1.23);
+    expect(roundNumber(1.234)).toBe(1.23);
+    expect(roundNumber(1.235)).toBe(1.24);
   });
 
   test('displayTime function', () => {
@@ -70,5 +81,11 @@ describe('DisplayHelper', () => {
     expect(displayDistance(1234)).toBe('1 km 234 m');
     expect(displayDistance(2000)).toBe('2 km');
     expect(displayDistance(23456)).toBe('23 km 456 m');
+  });
+
+  test('displaySpeed function', () => {
+    expect(displaySpeed()).toBe('0 km/h');
+    expect(displaySpeed(1)).toBe('1 km/h');
+    expect(displaySpeed(1.234)).toBe('1.23 km/h');
   });
 });

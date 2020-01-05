@@ -17,6 +17,8 @@ import Typography from '@material-ui/core/Typography';
 import DistanceCalculator from './../DistanceCalculator/DistanceCalculator';
 import PaceCalculator from './../PaceCalculator/PaceCalculator';
 import TimeCalculator from './../TimeCalculator/TimeCalculator';
+import SpeedToPaceConverter from '../SpeedToPaceConverter/SpeedToPaceConverter';
+import PaceToSpeedConverter from '../PaceToSpeedConverter/PaceToSpeedConverter';
 
 import logo from './logo-35.png';
 
@@ -79,8 +81,17 @@ class App extends Component {
           <Paper className={classes.contentPaper}>
             <TimeCalculator />
           </Paper>
+
           <Paper className={classes.contentPaper}>
             <DistanceCalculator />
+          </Paper>
+
+          <Paper className={classes.contentPaper}>
+            <SpeedToPaceConverter />
+          </Paper>
+
+          <Paper className={classes.contentPaper}>
+            <PaceToSpeedConverter />
           </Paper>
         </Container>
       </MuiThemeProvider>
