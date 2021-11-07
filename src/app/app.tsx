@@ -1,0 +1,46 @@
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Typography,
+  CssBaseline,
+  Container,
+  Paper,
+} from '@mui/material';
+
+import { PaceCalculator } from './modules/pace-calculator.module';
+
+import logo from './images/logo-35.png';
+
+export const App = () => {
+  return (
+    <>
+      <CssBaseline />
+
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static" sx={{ mb: 2 }}>
+          <Toolbar>
+            <Box
+              sx={{
+                mr: 1,
+                pt: 1,
+              }}
+            >
+              <img src={logo} alt="" />
+            </Box>
+
+            <Typography variant="h6" component="div">
+              Running Calculators
+            </Typography>
+          </Toolbar>
+        </AppBar>
+
+        <Container maxWidth="md">
+          <Paper sx={{ p: 2 }}>
+            <PaceCalculator />
+          </Paper>
+        </Container>
+      </Box>
+    </>
+  );
+};
