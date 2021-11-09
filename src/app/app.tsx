@@ -29,6 +29,9 @@ const theme = createTheme({
   },
   components: {
     MuiTextField: {
+      defaultProps: {
+        fullWidth: true,
+      },
       styleOverrides: {
         root: {
           input: {
@@ -38,6 +41,11 @@ const theme = createTheme({
             },
           },
         },
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+        fullWidth: true,
       },
     },
   },

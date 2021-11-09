@@ -43,12 +43,10 @@ export const TimePicker: React.FC<TimePickerProps> = ({
         <>
           <Grid item xs>
             <Button
-              variant="outlined"
               sx={{ mb: 1 }}
               onClick={() => {
                 setHours(String(Number(hours) + 1));
               }}
-              fullWidth
             >
               <KeyboardArrowUpIcon />
             </Button>
@@ -56,22 +54,18 @@ export const TimePicker: React.FC<TimePickerProps> = ({
             <TextField
               type="number"
               label="Hours"
-              variant="outlined"
               sx={{ mb: 1 }}
               value={hours}
               onChange={({ target: { value } }) => {
                 setHours(value);
               }}
               inputProps={{ min: 0 }}
-              fullWidth
             />
 
             <Button
-              variant="outlined"
               onClick={() => {
                 setHours(String(Number(hours) - 1 > 0 ? Number(hours) - 1 : 0));
               }}
-              fullWidth
               disabled={hours === '0'}
             >
               <KeyboardArrowDownIcon />
@@ -84,14 +78,12 @@ export const TimePicker: React.FC<TimePickerProps> = ({
       )}
       <Grid item xs>
         <Button
-          variant="outlined"
           sx={{ mb: 1 }}
           onClick={() => {
             setMinutes(
               String(Number(minutes) + 1 > 59 ? 0 : Number(minutes) + 1)
             );
           }}
-          fullWidth
         >
           <KeyboardArrowUpIcon />
         </Button>
@@ -99,24 +91,20 @@ export const TimePicker: React.FC<TimePickerProps> = ({
         <TextField
           type="number"
           label="Minutes"
-          variant="outlined"
           sx={{ mb: 1 }}
           value={minutes}
           onChange={({ target: { value } }) => {
             setMinutes(value);
           }}
           inputProps={{ min: 0, max: 59 }}
-          fullWidth
         />
 
         <Button
-          variant="outlined"
           onClick={() => {
             setMinutes(
               String(Number(minutes) - 1 < 0 ? 59 : Number(minutes) - 1)
             );
           }}
-          fullWidth
         >
           <KeyboardArrowDownIcon />
         </Button>
@@ -126,14 +114,12 @@ export const TimePicker: React.FC<TimePickerProps> = ({
       </Grid>
       <Grid item xs>
         <Button
-          variant="outlined"
           sx={{ mb: 1 }}
           onClick={() => {
             setSeconds(
               String(Number(seconds) + 1 > 59 ? 0 : Number(seconds) + 1)
             );
           }}
-          fullWidth
         >
           <KeyboardArrowUpIcon />
         </Button>
@@ -141,24 +127,20 @@ export const TimePicker: React.FC<TimePickerProps> = ({
         <TextField
           type="number"
           label="Seconds"
-          variant="outlined"
           sx={{ mb: 1 }}
           value={seconds}
           onChange={({ target: { value } }) => {
             setSeconds(value);
           }}
           inputProps={{ min: 0, max: 59 }}
-          fullWidth
         />
 
         <Button
-          variant="outlined"
           onClick={() => {
             setSeconds(
               String(Number(seconds) - 1 < 0 ? 59 : Number(seconds) - 1)
             );
           }}
-          fullWidth
         >
           <KeyboardArrowDownIcon />
         </Button>

@@ -25,12 +25,10 @@ export const SpeedPicker: React.FC<SpeedPickerProps> = ({
     <Grid container spacing={2}>
       <Grid item xs>
         <Button
-          variant="outlined"
           sx={{ mb: 1 }}
           onClick={() => {
             setSpeed(String(roundNumber(Number(speed) + 0.1)));
           }}
-          fullWidth
         >
           <KeyboardArrowUpIcon />
         </Button>
@@ -38,22 +36,18 @@ export const SpeedPicker: React.FC<SpeedPickerProps> = ({
         <TextField
           type="number"
           label="Speed"
-          variant="outlined"
           sx={{ mb: 1 }}
           value={value}
           onChange={({ target: { value } }) => {
             setSpeed(value);
           }}
           inputProps={{ min: 0 }}
-          fullWidth
         />
 
         <Button
-          variant="outlined"
           onClick={() => {
             setSpeed(String(roundNumber(Number(speed) - 0.1)));
           }}
-          fullWidth
           disabled={speed === '0'}
         >
           <KeyboardArrowDownIcon />

@@ -50,7 +50,6 @@ export const DistancePicker: React.FC<DistancePickerProps> = ({
     <>
       <TextField
         type="number"
-        fullWidth
         sx={{ mb: 2 }}
         value={value}
         onChange={({ target: { value } }) => {
