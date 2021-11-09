@@ -24,7 +24,21 @@ const theme = createTheme({
       default: grey[200],
     },
     text: {
-      primary: grey[900],
+      primary: grey[800],
+    },
+  },
+  components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          input: {
+            textAlign: 'center',
+            '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
+              '-webkit-appearance': 'none',
+            },
+          },
+        },
+      },
     },
   },
 });

@@ -44,7 +44,7 @@ export const SpeedPicker: React.FC<SpeedPickerProps> = ({
           onChange={({ target: { value } }) => {
             setSpeed(value);
           }}
-          inputProps={{ min: 0, className: 'hideInputArrows textCenter' }}
+          inputProps={{ min: 0 }}
           fullWidth
         />
 

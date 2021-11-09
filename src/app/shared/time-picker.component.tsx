@@ -62,7 +62,7 @@ export const TimePicker: React.FC<TimePickerProps> = ({
               onChange={({ target: { value } }) => {
                 setHours(value);
               }}
-              inputProps={{ min: 0, className: 'hideInputArrows textCenter' }}
+              inputProps={{ min: 0 }}
               fullWidth
             />
 
@@ -105,11 +105,7 @@ export const TimePicker: React.FC<TimePickerProps> = ({
           onChange={({ target: { value } }) => {
             setMinutes(value);
           }}
-          inputProps={{
-            min: 0,
-            max: 59,
-            className: 'hideInputArrows textCenter',
-          }}
+          inputProps={{ min: 0, max: 59 }}
           fullWidth
         />
 
@@ -151,11 +147,7 @@ export const TimePicker: React.FC<TimePickerProps> = ({
           onChange={({ target: { value } }) => {
             setSeconds(value);
           }}
-          inputProps={{
-            min: 0,
-            max: 59,
-            className: 'hideInputArrows textCenter',
-          }}
+          inputProps={{ min: 0, max: 59 }}
           fullWidth
         />
 

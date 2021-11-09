@@ -56,7 +56,7 @@ export const DistancePicker: React.FC<DistancePickerProps> = ({
         onChange={({ target: { value } }) => {
           setValue(value);
         }}
-        inputProps={{ min: 0, className: 'hideInputArrows textCenter' }}
+        inputProps={{ min: 0 }}
       />
 
       <Stack direction="row" spacing={1} justifyContent="center">
