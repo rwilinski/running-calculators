@@ -22,10 +22,6 @@ export const displayTime = (seconds = 0, hideEmptyHours = false) => {
   return `${pad(time.hours)}:${pad(time.minutes)}:${pad(time.seconds)}`;
 };
 
-export const displayPace = (seconds = 0) => {
-  return `${displayTime(seconds, true)} min/km`;
-};
-
 export const displayDistance = (meters = 0) => {
   const valueFloor = Math.floor(meters);
 
@@ -43,4 +39,8 @@ export const displayDistance = (meters = 0) => {
 
 export const displaySpeed = (speed = 0) => {
   return `${roundNumber(speed)} km/h`;
+};
+
+export const displayPace = (seconds = 0) => {
+  return `${displayTime(seconds, true)} min/km`;
 };

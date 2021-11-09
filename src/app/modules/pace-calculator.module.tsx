@@ -1,7 +1,7 @@
 import { InputLabel, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 
-import { calculateSpeed, calculatePace } from '../utils/time.util';
+import { calculateSpeed, calculatePace } from '../utils/calculate.util';
 import { displaySpeed, displayPace } from '../utils/display.util';
 import { DistancePicker } from './../shared/distance-picker.component';
 import { Summary } from './../shared/summary.component';
