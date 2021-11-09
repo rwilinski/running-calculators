@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { displayTime } from '../utils/display.util';
 import { DistancePicker } from './../shared/distance-picker.component';
 import { Summary } from './../shared/summary.component';
+import { SummaryItem } from './../shared/summary-item.component';
 import { TimePicker } from './../shared/time-picker.component';
 
 export const TimeCalculator = () => {
@@ -34,14 +35,11 @@ export const TimeCalculator = () => {
 
       <DistancePicker distance={distance} onChange={setDistance} />
 
-      <Summary
-        data={[
-          {
-            label: 'Time',
-            text: time ? displayTime(time) : '00:00:00',
-          },
-        ]}
-      />
+      <Summary>
+        <SummaryItem label="Time">
+          {time ? displayTime(time) : '00:00:00'}
+        </SummaryItem>
+      </Summary>
     </>
   );
 };

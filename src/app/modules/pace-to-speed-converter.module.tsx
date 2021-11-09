@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { displaySpeed } from '../utils/display.util';
 import { Summary } from './../shared/summary.component';
+import { SummaryItem } from './../shared/summary-item.component';
 import { TimePicker } from './../shared/time-picker.component';
 
 export const PaceToSpeedConverter = () => {
@@ -28,14 +29,9 @@ export const PaceToSpeedConverter = () => {
 
       <TimePicker asPace value={pace} onChange={setPace} />
 
-      <Summary
-        data={[
-          {
-            label: 'Speed',
-            text: displaySpeed(speed || 0),
-          },
-        ]}
-      />
+      <Summary>
+        <SummaryItem label="Speed">{displaySpeed(speed || 0)}</SummaryItem>
+      </Summary>
     </>
   );
 };

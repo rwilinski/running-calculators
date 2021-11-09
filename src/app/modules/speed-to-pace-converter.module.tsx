@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { displayPace } from '../utils/display.util';
 import { SpeedPicker } from '../shared/speed-picker.component';
 import { Summary } from './../shared/summary.component';
+import { SummaryItem } from './../shared/summary-item.component';
 
 export const SpeedToPaceConverter = () => {
   const [speed, setSpeed] = useState(10);
@@ -28,14 +29,9 @@ export const SpeedToPaceConverter = () => {
 
       <SpeedPicker value={speed} onChange={setSpeed} />
 
-      <Summary
-        data={[
-          {
-            label: 'Pace',
-            text: displayPace(pace || 0),
-          },
-        ]}
-      />
+      <Summary>
+        <SummaryItem label="Pace">{displayPace(pace || 0)}</SummaryItem>
+      </Summary>
     </>
   );
 };

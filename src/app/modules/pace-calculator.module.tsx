@@ -5,6 +5,7 @@ import { calculateSpeed, calculatePace } from '../utils/time.util';
 import { displaySpeed, displayPace } from '../utils/display.util';
 import { DistancePicker } from './../shared/distance-picker.component';
 import { Summary } from './../shared/summary.component';
+import { SummaryItem } from './../shared/summary-item.component';
 import { TimePicker } from './../shared/time-picker.component';
 
 export const PaceCalculator = () => {
@@ -40,18 +41,10 @@ export const PaceCalculator = () => {
 
       <DistancePicker distance={distance} onChange={setDistance} />
 
-      <Summary
-        data={[
-          {
-            label: 'Speed',
-            text: displaySpeed(speed),
-          },
-          {
-            label: 'Pace',
-            text: displayPace(pace),
-          },
-        ]}
-      />
+      <Summary>
+        <SummaryItem label="Speed">{displaySpeed(speed)}</SummaryItem>
+        <SummaryItem label="Pace">{displayPace(pace)}</SummaryItem>
+      </Summary>
 
       {/* 
       <ExpansionPanel className={classes.expansionPanel}>

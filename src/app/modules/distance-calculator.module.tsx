@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { displayDistance } from '../utils/display.util';
 import { Summary } from './../shared/summary.component';
+import { SummaryItem } from './../shared/summary-item.component';
 import { TimePicker } from './../shared/time-picker.component';
 
 export const DistanceCalculator = () => {
@@ -33,14 +34,11 @@ export const DistanceCalculator = () => {
 
       <TimePicker value={time} onChange={setTime} />
 
-      <Summary
-        data={[
-          {
-            label: 'Distance',
-            text: displayDistance(distance || 0),
-          },
-        ]}
-      />
+      <Summary>
+        <SummaryItem label="Distance">
+          {displayDistance(distance || 0)}
+        </SummaryItem>
+      </Summary>
     </>
   );
 };
