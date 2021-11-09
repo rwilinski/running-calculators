@@ -10,6 +10,7 @@ import {
 
 import { PaceCalculator } from './modules/pace-calculator.module';
 import { TimeCalculator } from './modules/time-calculator.module';
+import { DistanceCalculator } from './modules/distance-calculator.module';
 
 import logo from './images/logo-35.png';
 
@@ -45,6 +46,12 @@ export const App = () => {
         <Container maxWidth="md" sx={{ mb: 3 }}>
           <Paper sx={{ p: 2 }}>
             <TimeCalculator />
+          </Paper>
+        </Container>
+
+        <Container maxWidth="md" sx={{ mb: 3 }}>
+          <Paper sx={{ p: 2 }}>
+            <DistanceCalculator />
           </Paper>
         </Container>
       </Box>
