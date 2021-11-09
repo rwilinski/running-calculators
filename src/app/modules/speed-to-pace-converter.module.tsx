@@ -1,8 +1,8 @@
 import { InputLabel, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { SpeedPicker } from '../shared/speed-picker.component';
+import { useEffect, useState } from 'react';
 
 import { displayPace } from '../utils/display.util';
+import { SpeedPicker } from '../shared/speed-picker.component';
 import { Summary } from './../shared/summary.component';
 
 export const SpeedToPaceConverter = () => {
