@@ -44,7 +44,7 @@ export const DistancePicker: React.FC<DistancePickerProps> = ({
   useEffect(() => {
     onChange(Number(distance));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
+  }, [distance]);
 
   return (
     <>
