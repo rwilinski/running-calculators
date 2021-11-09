@@ -39,7 +39,7 @@ export const PaceCalculator = () => {
 
       <InputLabel sx={{ mb: 2, mt: 2 }}>Distance (meters)</InputLabel>
 
-      <DistancePicker distance={distance} onChange={setDistance} />
+      <DistancePicker value={distance} onChange={setDistance} />
 
       <Summary>
         <SummaryItem label="Speed">{displaySpeed(speed)}</SummaryItem>

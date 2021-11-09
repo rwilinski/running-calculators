@@ -31,18 +31,18 @@ const DISTANCES = [
 ];
 
 type DistancePickerProps = {
-  distance: number;
+  value: number;
   onChange: (distance: number) => void;
 };
 
 export const DistancePicker: React.FC<DistancePickerProps> = ({
-  distance,
+  value,
   onChange,
 }) => {
-  const [value, setValue] = useState(String(distance));
+  const [distance, setDistance] = useState(String(value));
 
   useEffect(() => {
-    onChange(Number(value));
+    onChange(Number(distance));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
@@ -51,9 +51,9 @@ export const DistancePicker: React.FC<DistancePickerProps> = ({
       <TextField
         type="number"
         sx={{ mb: 2 }}
-        value={value}
+        value={distance}
         onChange={({ target: { value } }) => {
-          setValue(value);
+          setDistance(value);
         }}
         inputProps={{ min: 0 }}
       />
@@ -65,7 +65,7 @@ export const DistancePicker: React.FC<DistancePickerProps> = ({
             color="primary"
             variant="outlined"
             label={item.name}
-            onClick={() => setValue(String(item.value))}
+            onClick={() => setDistance(String(item.value))}
           />
         ))}
       </Stack>
