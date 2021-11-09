@@ -1,4 +1,11 @@
-import { InputLabel, Typography } from '@mui/material';
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  InputLabel,
+  Typography,
+} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useEffect, useState } from 'react';
 
 import { calculateSpeed, calculatePace } from '../utils/calculate.util';
@@ -7,6 +14,7 @@ import { DistancePicker } from './../shared/distance-picker.component';
 import { Summary } from './../shared/summary.component';
 import { SummaryItem } from './../shared/summary-item.component';
 import { TimePicker } from './../shared/time-picker.component';
+import { DistanceTable } from './../shared/distance-table.component';
 
 export const PaceCalculator = () => {
   const [time, setTime] = useState(360);
@@ -46,19 +54,16 @@ export const PaceCalculator = () => {
         <SummaryItem label="Pace">{displayPace(pace)}</SummaryItem>
       </Summary>
 
-      {/* 
-      <ExpansionPanel className={classes.expansionPanel}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+      <Accordion sx={{ mt: 2 }}>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>Your target split times:</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <DistanceTable
-            time={this.state.time}
-            distance={this.state.distance}
-          />
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      */}
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <DistanceTable time={time} distance={distance} />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
     </>
   );
 };
