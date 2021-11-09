@@ -2,7 +2,7 @@ import { InputLabel, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 import { calculateSpeed, calculatePace } from '../utils/time.util';
-import { displayTime } from '../utils/display.util';
+import { displayTime, displaySpeed } from '../utils/display.util';
 import { DistancePicker } from './../shared/distance-picker.component';
 import { Summary } from './../shared/summary.component';
 import { TimePicker } from './../shared/time-picker.component';
@@ -44,7 +44,7 @@ export const PaceCalculator = () => {
         data={[
           {
             label: 'Speed',
-            text: `${speed} km/h`,
+            text: displaySpeed(speed),
           },
           {
             label: 'Pace',

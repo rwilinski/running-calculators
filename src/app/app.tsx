@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 
 import { PaceCalculator } from './modules/pace-calculator.module';
+import { TimeCalculator } from './modules/time-calculator.module';
 
 import logo from './images/logo-35.png';
 
@@ -35,9 +36,15 @@ export const App = () => {
           </Toolbar>
         </AppBar>
 
-        <Container maxWidth="md">
+        <Container maxWidth="md" sx={{ mb: 3 }}>
           <Paper sx={{ p: 2 }}>
             <PaceCalculator />
+          </Paper>
+        </Container>
+
+        <Container maxWidth="md" sx={{ mb: 3 }}>
+          <Paper sx={{ p: 2 }}>
+            <TimeCalculator />
           </Paper>
         </Container>
       </Box>
