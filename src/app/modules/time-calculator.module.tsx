@@ -8,14 +8,14 @@ import { SummaryItem } from './../shared/summary-item.component';
 import { TimePicker } from './../shared/time-picker.component';
 
 export const TimeCalculator = () => {
-  const [seconds, setSeconds] = useState(360);
+  const [time, setTime] = useState(360);
   const [distance, setDistance] = useState(1000);
 
-  const [time, setTime] = useState<number>();
+  const [timeOutput, setTimeOutput] = useState<number>();
 
   useEffect(() => {
-    setTime(seconds * (distance / 1000));
-  }, [seconds, distance]);
+    setTimeOutput(time * (distance / 1000));
+  }, [time, distance]);
 
   return (
     <>
@@ -29,16 +29,14 @@ export const TimeCalculator = () => {
 
       <InputLabel sx={{ mb: 2 }}>Pace (m:s)</InputLabel>
 
-      <TimePicker value={seconds} onChange={setSeconds} asPace />
+      <TimePicker value={time} onChange={setTime} asPace />
 
       <InputLabel sx={{ mb: 2, mt: 2 }}>Distance (meters)</InputLabel>
 
       <DistancePicker distance={distance} onChange={setDistance} />
 
       <Summary>
-        <SummaryItem label="Time">
-          {time ? displayTime(time) : '00:00:00'}
-        </SummaryItem>
+        <SummaryItem label="Time">{displayTime(timeOutput)}</SummaryItem>
       </Summary>
     </>
   );

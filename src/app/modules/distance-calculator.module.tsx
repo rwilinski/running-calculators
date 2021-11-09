@@ -35,9 +35,7 @@ export const DistanceCalculator = () => {
       <TimePicker value={time} onChange={setTime} />
 
       <Summary>
-        <SummaryItem label="Distance">
-          {displayDistance(distance || 0)}
-        </SummaryItem>
+        <SummaryItem label="Distance">{displayDistance(distance)}</SummaryItem>
       </Summary>
     </>
   );

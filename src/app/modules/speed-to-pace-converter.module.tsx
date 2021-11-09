@@ -30,7 +30,7 @@ export const SpeedToPaceConverter = () => {
       <SpeedPicker value={speed} onChange={setSpeed} />
 
       <Summary>
-        <SummaryItem label="Pace">{displayPace(pace || 0)}</SummaryItem>
+        <SummaryItem label="Pace">{displayPace(pace)}</SummaryItem>
       </Summary>
     </>
   );

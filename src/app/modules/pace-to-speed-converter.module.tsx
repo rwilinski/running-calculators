@@ -30,7 +30,7 @@ export const PaceToSpeedConverter = () => {
       <TimePicker asPace value={pace} onChange={setPace} />
 
       <Summary>
-        <SummaryItem label="Speed">{displaySpeed(speed || 0)}</SummaryItem>
+        <SummaryItem label="Speed">{displaySpeed(speed)}</SummaryItem>
       </Summary>
     </>
   );

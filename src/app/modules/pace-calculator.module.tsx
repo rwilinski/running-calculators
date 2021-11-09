@@ -9,16 +9,16 @@ import { SummaryItem } from './../shared/summary-item.component';
 import { TimePicker } from './../shared/time-picker.component';
 
 export const PaceCalculator = () => {
-  const [seconds, setSeconds] = useState(360);
+  const [time, setTime] = useState(360);
   const [distance, setDistance] = useState(1000);
 
-  const [speed, setSpeed] = useState(0);
-  const [pace, setPace] = useState(0);
+  const [speed, setSpeed] = useState<number>();
+  const [pace, setPace] = useState<number>();
 
   useEffect(() => {
-    setSpeed(calculateSpeed(seconds, distance));
-    setPace(calculatePace(seconds, distance));
-  }, [seconds, distance]);
+    setSpeed(calculateSpeed(time, distance));
+    setPace(calculatePace(time, distance));
+  }, [time, distance]);
 
   return (
     <>
@@ -35,7 +35,7 @@ export const PaceCalculator = () => {
 
       <InputLabel sx={{ mb: 2 }}>Expected time (h:m:s)</InputLabel>
 
-      <TimePicker value={seconds} onChange={setSeconds} />
+      <TimePicker value={time} onChange={setTime} />
 
       <InputLabel sx={{ mb: 2, mt: 2 }}>Distance (meters)</InputLabel>
 

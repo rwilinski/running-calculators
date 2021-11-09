@@ -4,11 +4,15 @@ export const pad = (value: number | string, size = 2) => {
   return String(value).padStart(size, '0');
 };
 
-export const roundNumber = (num: number) => {
-  return Math.round(num * 100) / 100;
+export const roundNumber = (number = 0) => {
+  return Math.round(number * 100) / 100;
 };
 
-export const displayTime = (seconds: number, hideEmptyHours = false) => {
+export const displayTime = (seconds = 0, hideEmptyHours = false) => {
+  if (!seconds) {
+    return hideEmptyHours ? '00:00' : '00:00:00';
+  }
+
   const time = secondsToTime(seconds);
 
   if (hideEmptyHours && !time.hours) {
@@ -18,11 +22,11 @@ export const displayTime = (seconds: number, hideEmptyHours = false) => {
   return `${pad(time.hours)}:${pad(time.minutes)}:${pad(time.seconds)}`;
 };
 
-export const displayPace = (seconds: number) => {
+export const displayPace = (seconds = 0) => {
   return `${displayTime(seconds, true)} min/km`;
 };
 
-export const displayDistance = (meters: number) => {
+export const displayDistance = (meters = 0) => {
   const valueFloor = Math.floor(meters);
 
   if (!meters || !valueFloor) {
@@ -37,6 +41,6 @@ export const displayDistance = (meters: number) => {
     .join(' ');
 };
 
-export const displaySpeed = (value = 0) => {
-  return `${roundNumber(value)} km/h`;
+export const displaySpeed = (speed = 0) => {
+  return `${roundNumber(speed)} km/h`;
 };
