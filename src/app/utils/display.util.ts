@@ -18,6 +18,10 @@ export const displayTime = (seconds: number, hideEmptyHours = false) => {
   return `${pad(time.hours)}:${pad(time.minutes)}:${pad(time.seconds)}`;
 };
 
+export const displayPace = (seconds: number) => {
+  return `${displayTime(seconds, true)} min/km`;
+};
+
 export const displayDistance = (meters: number) => {
   const valueFloor = Math.floor(meters);
 
