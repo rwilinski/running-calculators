@@ -14,7 +14,6 @@ export const TimeCalculator = () => {
 
   useEffect(() => {
     setTime(seconds * (distance / 1000));
-    // setPace(calculatePace(seconds, distance));
   }, [seconds, distance]);
 
   return (
