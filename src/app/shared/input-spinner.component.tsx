@@ -8,6 +8,7 @@ type InputSpinnerProps = {
   value: number;
   max?: number;
   downDisabled?: boolean;
+  factor?: number;
   onChange: (value: number) => void;
 };
 
@@ -16,6 +17,7 @@ export const InputSpinner: React.FC<InputSpinnerProps> = ({
   value,
   max,
   downDisabled,
+  factor = 1,
   onChange,
 }) => {
   const [tempValue, setTempValue] = useState(String(value));
@@ -23,16 +25,20 @@ export const InputSpinner: React.FC<InputSpinnerProps> = ({
   const onUpClick = () => {
     if (max) {
       setTempValue(
-        String(Number(tempValue) + 1 > max ? 0 : Number(tempValue) + 1)
+        String(
+          Number(tempValue) + factor > max ? 0 : Number(tempValue) + factor
+        )
       );
     } else {
-      setTempValue(String(Number(tempValue) + 1));
+      setTempValue(String(Number(tempValue) + factor));
     }
   };
 
   const onDownClick = () => {
     setTempValue(
-      String(Number(tempValue) - 1 < 0 ? max || 0 : Number(tempValue) - 1)
+      String(
+        Number(tempValue) - factor < 0 ? max || 0 : Number(tempValue) - factor
+      )
     );
   };
 
