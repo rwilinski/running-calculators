@@ -1,15 +1,8 @@
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  Typography,
-  CssBaseline,
-  Container,
-  Paper,
-} from '@mui/material';
+import { AppBar, Box, Toolbar, Typography, CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
 
+import { ModuleWrapper } from './layout/module-container.component';
 import { PaceCalculator } from './modules/pace-calculator.module';
 import { TimeCalculator } from './modules/time-calculator.module';
 import { DistanceCalculator } from './modules/distance-calculator.module';
@@ -74,35 +67,25 @@ export const App = () => {
           </Toolbar>
         </AppBar>
 
-        <Container maxWidth="md" sx={{ mb: 4 }}>
-          <Paper sx={{ p: 2 }}>
-            <PaceCalculator />
-          </Paper>
-        </Container>
+        <ModuleWrapper>
+          <PaceCalculator />
+        </ModuleWrapper>
 
-        <Container maxWidth="md" sx={{ mb: 4 }}>
-          <Paper sx={{ p: 2 }}>
-            <TimeCalculator />
-          </Paper>
-        </Container>
+        <ModuleWrapper>
+          <TimeCalculator />
+        </ModuleWrapper>
 
-        <Container maxWidth="md" sx={{ mb: 4 }}>
-          <Paper sx={{ p: 2 }}>
-            <DistanceCalculator />
-          </Paper>
-        </Container>
+        <ModuleWrapper>
+          <DistanceCalculator />
+        </ModuleWrapper>
 
-        <Container maxWidth="md" sx={{ mb: 4 }}>
-          <Paper sx={{ p: 2 }}>
-            <SpeedToPaceConverter />
-          </Paper>
-        </Container>
+        <ModuleWrapper>
+          <SpeedToPaceConverter />
+        </ModuleWrapper>
 
-        <Container maxWidth="md" sx={{ mb: 4 }}>
-          <Paper sx={{ p: 2 }}>
-            <PaceToSpeedConverter />
-          </Paper>
-        </Container>
+        <ModuleWrapper>
+          <PaceToSpeedConverter />
+        </ModuleWrapper>
       </Box>
     </ThemeProvider>
   );
