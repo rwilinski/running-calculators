@@ -59,9 +59,7 @@ export const PaceCalculator = () => {
           <Typography>Your target split times:</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <DistanceTable time={time} distance={distance} />
-          </Typography>
+          <DistanceTable time={time} distance={distance} />
         </AccordionDetails>
       </Accordion>
     </>
