@@ -1,9 +1,8 @@
-import { Button, Grid, TextField, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 import { secondsToTime, timeToSeconds } from './../utils/time.util';
+import { InputSpinner } from './input-spinner.component';
 
 type TimePickerProps = {
   asPace?: boolean;
@@ -22,16 +21,12 @@ export const TimePicker: React.FC<TimePickerProps> = ({
     seconds: initialSeconds,
   } = secondsToTime(value);
 
-  const [hours, setHours] = useState(String(initialHours));
-  const [minutes, setMinutes] = useState(String(initialMinutes));
-  const [seconds, setSeconds] = useState(String(initialSeconds));
+  const [hours, setHours] = useState(initialHours);
+  const [minutes, setMinutes] = useState(initialMinutes);
+  const [seconds, setSeconds] = useState(initialSeconds);
 
   useEffect(() => {
-    const time = timeToSeconds({
-      hours: Number(hours),
-      minutes: Number(minutes),
-      seconds: Number(seconds),
-    });
+    const time = timeToSeconds({ hours, minutes, seconds });
 
     onChange(time);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -42,34 +37,12 @@ export const TimePicker: React.FC<TimePickerProps> = ({
       {!asPace && (
         <>
           <Grid item xs>
-            <Button
-              sx={{ mb: 1 }}
-              onClick={() => {
-                setHours(String(Number(hours) + 1));
-              }}
-            >
-              <KeyboardArrowUpIcon />
-            </Button>
-
-            <TextField
-              type="number"
+            <InputSpinner
               label="Hours"
-              sx={{ mb: 1 }}
               value={hours}
-              onChange={({ target: { value } }) => {
-                setHours(value);
-              }}
-              inputProps={{ min: 0 }}
+              onChange={setHours}
+              downDisabled={hours <= 0}
             />
-
-            <Button
-              onClick={() => {
-                setHours(String(Number(hours) - 1 > 0 ? Number(hours) - 1 : 0));
-              }}
-              disabled={hours === '0'}
-            >
-              <KeyboardArrowDownIcon />
-            </Button>
           </Grid>
           <Grid item alignSelf="center">
             <Typography variant="h6">:</Typography>
@@ -77,73 +50,23 @@ export const TimePicker: React.FC<TimePickerProps> = ({
         </>
       )}
       <Grid item xs>
-        <Button
-          sx={{ mb: 1 }}
-          onClick={() => {
-            setMinutes(
-              String(Number(minutes) + 1 > 59 ? 0 : Number(minutes) + 1)
-            );
-          }}
-        >
-          <KeyboardArrowUpIcon />
-        </Button>
-
-        <TextField
-          type="number"
+        <InputSpinner
           label="Minutes"
-          sx={{ mb: 1 }}
           value={minutes}
-          onChange={({ target: { value } }) => {
-            setMinutes(value);
-          }}
-          inputProps={{ min: 0, max: 59 }}
+          max={59}
+          onChange={setMinutes}
         />
-
-        <Button
-          onClick={() => {
-            setMinutes(
-              String(Number(minutes) - 1 < 0 ? 59 : Number(minutes) - 1)
-            );
-          }}
-        >
-          <KeyboardArrowDownIcon />
-        </Button>
       </Grid>
       <Grid item alignSelf="center">
         <Typography variant="h6">:</Typography>
       </Grid>
       <Grid item xs>
-        <Button
-          sx={{ mb: 1 }}
-          onClick={() => {
-            setSeconds(
-              String(Number(seconds) + 1 > 59 ? 0 : Number(seconds) + 1)
-            );
-          }}
-        >
-          <KeyboardArrowUpIcon />
-        </Button>
-
-        <TextField
-          type="number"
+        <InputSpinner
           label="Seconds"
-          sx={{ mb: 1 }}
           value={seconds}
-          onChange={({ target: { value } }) => {
-            setSeconds(value);
-          }}
-          inputProps={{ min: 0, max: 59 }}
+          max={59}
+          onChange={setSeconds}
         />
-
-        <Button
-          onClick={() => {
-            setSeconds(
-              String(Number(seconds) - 1 < 0 ? 59 : Number(seconds) - 1)
-            );
-          }}
-        >
-          <KeyboardArrowDownIcon />
-        </Button>
       </Grid>
     </Grid>
   );
