@@ -48,8 +48,12 @@ export const SpinInput: React.FC<SpinInputProps> = ({
   }, [tempValue]);
 
   return (
-    <>
-      <Button sx={{ mb: 1 }} onClick={onUpClick}>
+    <div data-testid="spin-input">
+      <Button
+        sx={{ mb: 1 }}
+        onClick={onUpClick}
+        data-testid="spin-input-up-button"
+      >
         <KeyboardArrowUpIcon />
       </Button>
 
@@ -67,12 +71,16 @@ export const SpinInput: React.FC<SpinInputProps> = ({
             setTempValue(value);
           }
         }}
-        inputProps={{ min: 0, max }}
+        inputProps={{ min: 0, max, 'data-testid': 'spin-input-input' }}
       />
 
-      <Button onClick={onDownClick} disabled={downDisabled}>
+      <Button
+        onClick={onDownClick}
+        disabled={downDisabled}
+        data-testid="spin-input-down-button"
+      >
         <KeyboardArrowDownIcon />
       </Button>
-    </>
+    </div>
   );
 };

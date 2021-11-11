@@ -48,7 +48,7 @@ export const DistancePicker: React.FC<DistancePickerProps> = ({
   }, [distance]);
 
   return (
-    <>
+    <div data-testid="distance-picker">
       <Label>Distance (meters)</Label>
 
       <TextField
@@ -59,7 +59,7 @@ export const DistancePicker: React.FC<DistancePickerProps> = ({
         onChange={({ target: { value } }) => {
           setDistance(value);
         }}
-        inputProps={{ min: 0 }}
+        inputProps={{ min: 0, 'data-testid': 'distance-picker-input' }}
       />
 
       <Stack direction="row" spacing={1} justifyContent="center">
@@ -70,9 +70,10 @@ export const DistancePicker: React.FC<DistancePickerProps> = ({
             variant="outlined"
             label={item.name}
             onClick={() => setDistance(String(item.value))}
+            data-testid="distance-picker-chip"
           />
         ))}
       </Stack>
-    </>
+    </div>
   );
 };
