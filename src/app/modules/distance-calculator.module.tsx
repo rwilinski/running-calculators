@@ -1,4 +1,4 @@
-import { InputLabel, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 import { displayDistance } from '../utils/display.util';
@@ -26,11 +26,7 @@ export const DistanceCalculator = () => {
         Provide your pace and planned time to calculate your target distance.
       </Typography>
 
-      <InputLabel sx={{ mb: 2 }}>Pace (m:s)</InputLabel>
-
       <TimePicker value={pace} onChange={setPace} asPace />
-
-      <InputLabel sx={{ mb: 2, mt: 2 }}>Time (h:m:s)</InputLabel>
 
       <TimePicker value={time} onChange={setTime} />
 

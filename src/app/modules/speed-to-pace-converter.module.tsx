@@ -1,4 +1,4 @@
-import { InputLabel, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 import { displayPace } from '../utils/display.util';
@@ -24,8 +24,6 @@ export const SpeedToPaceConverter = () => {
       <Typography variant="body1" paragraph={true}>
         Enter a speed to find the corresponding pace.
       </Typography>
-
-      <InputLabel sx={{ mb: 2 }}>Speed (km/h)</InputLabel>
 
       <SpeedPicker value={speed} onChange={setSpeed} />
 

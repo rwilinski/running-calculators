@@ -2,7 +2,6 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  InputLabel,
   Typography,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -41,11 +40,7 @@ export const PaceCalculator = () => {
         finishing time.
       </Typography>
 
-      <InputLabel sx={{ mb: 2 }}>Expected time (h:m:s)</InputLabel>
-
       <TimePicker value={time} onChange={setTime} />
-
-      <InputLabel sx={{ mb: 2, mt: 2 }}>Distance (meters)</InputLabel>
 
       <DistancePicker value={distance} onChange={setDistance} />
 

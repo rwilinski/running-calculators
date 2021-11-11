@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { secondsToTime, timeToSeconds } from './../utils/time.util';
 import { InputSpinner } from './input-spinner.component';
+import { Label } from './label.component';
 
 type TimePickerProps = {
   asPace?: boolean;
@@ -33,41 +34,45 @@ export const TimePicker: React.FC<TimePickerProps> = ({
   }, [hours, minutes, seconds]);
 
   return (
-    <Grid container spacing={2}>
-      {!asPace && (
-        <>
-          <Grid item xs>
-            <InputSpinner
-              label="Hours"
-              value={hours}
-              onChange={setHours}
-              downDisabled={hours <= 0}
-            />
-          </Grid>
-          <Grid item alignSelf="center">
-            <Typography variant="h6">:</Typography>
-          </Grid>
-        </>
-      )}
-      <Grid item xs>
-        <InputSpinner
-          label="Minutes"
-          value={minutes}
-          max={59}
-          onChange={setMinutes}
-        />
+    <>
+      <Label>{asPace ? 'Pace (m:s)' : 'Time (h:m:s)'}</Label>
+
+      <Grid container spacing={2} sx={{ mb: 2 }}>
+        {!asPace && (
+          <>
+            <Grid item xs>
+              <InputSpinner
+                label="Hours"
+                value={hours}
+                onChange={setHours}
+                downDisabled={hours <= 0}
+              />
+            </Grid>
+            <Grid item alignSelf="center">
+              <Typography variant="h6">:</Typography>
+            </Grid>
+          </>
+        )}
+        <Grid item xs>
+          <InputSpinner
+            label="Minutes"
+            value={minutes}
+            max={59}
+            onChange={setMinutes}
+          />
+        </Grid>
+        <Grid item alignSelf="center">
+          <Typography variant="h6">:</Typography>
+        </Grid>
+        <Grid item xs>
+          <InputSpinner
+            label="Seconds"
+            value={seconds}
+            max={59}
+            onChange={setSeconds}
+          />
+        </Grid>
       </Grid>
-      <Grid item alignSelf="center">
-        <Typography variant="h6">:</Typography>
-      </Grid>
-      <Grid item xs>
-        <InputSpinner
-          label="Seconds"
-          value={seconds}
-          max={59}
-          onChange={setSeconds}
-        />
-      </Grid>
-    </Grid>
+    </>
   );
 };

@@ -2,6 +2,7 @@ import { Chip, Stack, TextField } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 import { displayDistance } from './../utils/display.util';
+import { Label } from './label.component';
 
 const DISTANCES = [
   {
@@ -48,8 +49,11 @@ export const DistancePicker: React.FC<DistancePickerProps> = ({
 
   return (
     <>
+      <Label>Distance (meters)</Label>
+
       <TextField
         type="number"
+        label="Distance"
         sx={{ mb: 2 }}
         value={distance}
         onChange={({ target: { value } }) => {

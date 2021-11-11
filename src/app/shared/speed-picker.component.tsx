@@ -1,6 +1,7 @@
 import { Grid } from '@mui/material';
 
 import { InputSpinner } from './input-spinner.component';
+import { Label } from './label.component';
 
 type SpeedPickerProps = {
   value: number;
@@ -12,16 +13,20 @@ export const SpeedPicker: React.FC<SpeedPickerProps> = ({
   onChange,
 }) => {
   return (
-    <Grid container spacing={2}>
-      <Grid item xs>
-        <InputSpinner
-          label="Speed"
-          value={value}
-          onChange={onChange}
-          downDisabled={value === 0}
-          factor={0.5}
-        />
+    <>
+      <Label>Speed (km/h)</Label>
+
+      <Grid container spacing={2}>
+        <Grid item xs>
+          <InputSpinner
+            label="Speed"
+            value={value}
+            onChange={onChange}
+            downDisabled={value === 0}
+            factor={0.5}
+          />
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
