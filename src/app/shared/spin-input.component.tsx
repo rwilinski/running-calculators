@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-type InputSpinnerProps = {
+type SpinInputProps = {
   label?: string;
   value: number;
   max?: number;
@@ -12,7 +12,7 @@ type InputSpinnerProps = {
   onChange: (value: number) => void;
 };
 
-export const InputSpinner: React.FC<InputSpinnerProps> = ({
+export const SpinInput: React.FC<SpinInputProps> = ({
   label,
   value,
   max,

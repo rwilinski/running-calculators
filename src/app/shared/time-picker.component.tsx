@@ -2,7 +2,7 @@ import { Grid, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 import { secondsToTime, timeToSeconds } from './../utils/time.util';
-import { InputSpinner } from './input-spinner.component';
+import { SpinInput } from './spin-input.component';
 import { Label } from './label.component';
 
 type TimePickerProps = {
@@ -41,7 +41,7 @@ export const TimePicker: React.FC<TimePickerProps> = ({
         {!asPace && (
           <>
             <Grid item xs>
-              <InputSpinner
+              <SpinInput
                 label="Hours"
                 value={hours}
                 onChange={setHours}
@@ -54,7 +54,7 @@ export const TimePicker: React.FC<TimePickerProps> = ({
           </>
         )}
         <Grid item xs>
-          <InputSpinner
+          <SpinInput
             label="Minutes"
             value={minutes}
             max={59}
@@ -65,7 +65,7 @@ export const TimePicker: React.FC<TimePickerProps> = ({
           <Typography variant="h6">:</Typography>
         </Grid>
         <Grid item xs>
-          <InputSpinner
+          <SpinInput
             label="Seconds"
             value={seconds}
             max={59}
