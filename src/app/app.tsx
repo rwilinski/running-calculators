@@ -2,7 +2,7 @@ import { AppBar, Box, Toolbar, Typography, CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
 
-import { ModuleWrapper } from './layout/module-container.component';
+import { ModuleWrapper } from './layout/module-wrapper.component';
 import { PaceCalculator } from './modules/pace-calculator.module';
 import { TimeCalculator } from './modules/time-calculator.module';
 import { DistanceCalculator } from './modules/distance-calculator.module';
