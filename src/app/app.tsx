@@ -2,6 +2,11 @@ import { AppBar, Box, Toolbar, Typography, CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
 
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 import { ModuleWrapper } from './layout/module-wrapper.component';
 import { PaceCalculator } from './modules/pace-calculator.module';
 import { TimeCalculator } from './modules/time-calculator.module';
