@@ -22,6 +22,7 @@ test('PaceCalculator', () => {
 
   expect(screen.getByText('10 km/h')).toBeInTheDocument();
   expect(screen.getByText('06:00 min/km')).toBeInTheDocument();
+  expect(screen.getByText('Your target split times:')).toBeInTheDocument();
 
   clearAndType(minutes, 25);
   clearAndType(seconds, 45);
