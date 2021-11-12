@@ -9,7 +9,7 @@ import {
 
 describe('display utils', () => {
   test('pad function', () => {
-    type PadType = [number, number, string][];
+    type PadType = [number, number | undefined, string][];
 
     const cases: PadType = [
       [1, undefined, '01'],
@@ -42,7 +42,7 @@ describe('display utils', () => {
   });
 
   test('displayTime function', () => {
-    type DisplayTimeType = [number, boolean, string][];
+    type DisplayTimeType = [number | undefined, boolean | undefined, string][];
 
     const cases: DisplayTimeType = [
       [undefined, undefined, '00:00:00'],
@@ -61,7 +61,7 @@ describe('display utils', () => {
   });
 
   test('displayDistance function', () => {
-    type DisplayDistanceType = [number, string][];
+    type DisplayDistanceType = [number | undefined, string][];
 
     const cases: DisplayDistanceType = [
       [undefined, '0 m'],
@@ -80,7 +80,7 @@ describe('display utils', () => {
   });
 
   test('displaySpeed function', () => {
-    type DisplaySpeedType = [number, string][];
+    type DisplaySpeedType = [number | undefined, string][];
 
     const cases: DisplaySpeedType = [
       [undefined, '0 km/h'],
@@ -97,7 +97,7 @@ describe('display utils', () => {
   });
 
   test('displayPace function', () => {
-    type DisplayPaceType = [number, string][];
+    type DisplayPaceType = [number | undefined, string][];
 
     const cases: DisplayPaceType = [
       [undefined, '00:00 min/km'],

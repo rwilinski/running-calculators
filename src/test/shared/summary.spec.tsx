@@ -4,7 +4,7 @@ import { Summary } from '../../app/shared/summary.component';
 import { SummaryItem } from '../../app/shared/summary-item.component';
 
 describe('Summary', () => {
-  test('should render', () => {
+  test('should render elements', () => {
     render(
       <Summary>
         <SummaryItem label="Test label 1">Test value 1</SummaryItem>
