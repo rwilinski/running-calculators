@@ -27,8 +27,8 @@ export const getDistanceTableElement = () => {
   return {
     table,
     rows,
-    cellsText: [...rows].map((tr) =>
-      [...tr.querySelectorAll('td')].map((td) => td.textContent)
+    cellsText: Array.from(rows).map((tr) =>
+      Array.from(tr.querySelectorAll('td')).map((td) => td.textContent)
     ),
   };
 };
