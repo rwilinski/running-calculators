@@ -1,4 +1,4 @@
-import { Chip, Stack, TextField } from '@mui/material';
+import { Box, Chip, TextField } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 import { displayDistance } from './../utils/display.util';
@@ -62,7 +62,7 @@ export const DistancePicker: React.FC<DistancePickerProps> = ({
         inputProps={{ min: 0, 'data-testid': 'distance-picker-input' }}
       />
 
-      <Stack direction="row" spacing={1} justifyContent="center">
+      <Box sx={{ textAlign: 'center' }}>
         {DISTANCES.map((item) => (
           <Chip
             key={item.value}
@@ -71,9 +71,10 @@ export const DistancePicker: React.FC<DistancePickerProps> = ({
             label={item.name}
             onClick={() => setDistance(String(item.value))}
             data-testid="distance-picker-chip"
+            sx={{ m: 0.5 }}
           />
         ))}
-      </Stack>
+      </Box>
     </div>
   );
 };
