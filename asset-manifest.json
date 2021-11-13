@@ -1,16 +1,28 @@
 {
   "files": {
-    "main.js": "/running-calculators/static/js/main.2757f478.chunk.js",
-    "main.js.map": "/running-calculators/static/js/main.2757f478.chunk.js.map",
-    "runtime~main.js": "/running-calculators/static/js/runtime~main.068dc81d.js",
-    "runtime~main.js.map": "/running-calculators/static/js/runtime~main.068dc81d.js.map",
-    "static/css/2.d8ccc970.chunk.css": "/running-calculators/static/css/2.d8ccc970.chunk.css",
-    "static/js/2.514d7b8d.chunk.js": "/running-calculators/static/js/2.514d7b8d.chunk.js",
-    "static/js/2.514d7b8d.chunk.js.map": "/running-calculators/static/js/2.514d7b8d.chunk.js.map",
+    "main.js": "/running-calculators/static/js/main.049343d8.chunk.js",
+    "main.js.map": "/running-calculators/static/js/main.049343d8.chunk.js.map",
+    "runtime-main.js": "/running-calculators/static/js/runtime-main.741beb22.js",
+    "runtime-main.js.map": "/running-calculators/static/js/runtime-main.741beb22.js.map",
+    "static/css/2.67bba8e9.chunk.css": "/running-calculators/static/css/2.67bba8e9.chunk.css",
+    "static/js/2.fcc61dff.chunk.js": "/running-calculators/static/js/2.fcc61dff.chunk.js",
+    "static/js/2.fcc61dff.chunk.js.map": "/running-calculators/static/js/2.fcc61dff.chunk.js.map",
+    "static/js/3.fb5986a2.chunk.js": "/running-calculators/static/js/3.fb5986a2.chunk.js",
+    "static/js/3.fb5986a2.chunk.js.map": "/running-calculators/static/js/3.fb5986a2.chunk.js.map",
     "index.html": "/running-calculators/index.html",
-    "precache-manifest.f43ced93ee4eaa13a0c30e08ace3eb8a.js": "/running-calculators/precache-manifest.f43ced93ee4eaa13a0c30e08ace3eb8a.js",
     "service-worker.js": "/running-calculators/service-worker.js",
-    "static/css/2.d8ccc970.chunk.css.map": "/running-calculators/static/css/2.d8ccc970.chunk.css.map",
-    "static/media/index.css": "/running-calculators/static/media/roboto-latin-900italic.ebf6d164.woff2"
-  }
+    "service-worker.js.map": "/running-calculators/service-worker.js.map",
+    "static/css/2.67bba8e9.chunk.css.map": "/running-calculators/static/css/2.67bba8e9.chunk.css.map",
+    "static/js/2.fcc61dff.chunk.js.LICENSE.txt": "/running-calculators/static/js/2.fcc61dff.chunk.js.LICENSE.txt",
+    "static/media/300.css": "/running-calculators/static/media/roboto-vietnamese-300-normal.af9afdc1.woff2",
+    "static/media/400.css": "/running-calculators/static/media/roboto-vietnamese-400-normal.c0bec65d.woff2",
+    "static/media/500.css": "/running-calculators/static/media/roboto-vietnamese-500-normal.b8e494da.woff2",
+    "static/media/700.css": "/running-calculators/static/media/roboto-vietnamese-700-normal.3096f18a.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.741beb22.js",
+    "static/css/2.67bba8e9.chunk.css",
+    "static/js/2.fcc61dff.chunk.js",
+    "static/js/main.049343d8.chunk.js"
+  ]
 }
