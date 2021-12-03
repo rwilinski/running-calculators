@@ -37,6 +37,9 @@ const theme = createTheme({
             '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
               WebkitAppearance: 'none',
             },
+            '&[type="number"]': {
+              '-moz-appearance': 'textfield',
+            },
           },
         },
       },
