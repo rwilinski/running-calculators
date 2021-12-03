@@ -66,7 +66,7 @@ export const App = () => {
                 pt: 1,
               }}
             >
-              <img src={logo} alt="" />
+              <img src={logo} alt="" width={35} height={35} />
             </Box>
 
             <Typography variant="h6" component="div">
